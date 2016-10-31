@@ -1,21 +1,27 @@
-let path = require('path')
-let express = require('express')
-let morgan = require('morgan')
-let cookieParser = require('cookie-parser')
-let bodyParser = require('body-parser')
-let session = require('express-session')
-let MongoStore = require('connect-mongo')(session)
-let mongoose = require('mongoose')
-let requireDir = require('require-dir')
-let flash = require('connect-flash')
+require('songbird')
+const path = require('path')
+const express = require('express')
+const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const mongoose = require('mongoose')
+const requireDir = require('require-dir')
+const flash = require('connect-flash')
 
-let passportMiddleware = require('./app/middlewares/passport')
+const passportMiddleware = require('./app/middlewares/passport')
 
-const NODE_ENV = process.env.NODE_ENV
+const NODE_ENV = process.env.NODE_ENV || 'development'
 
-let app = express(),
+const app = express(),
   config = requireDir('./config', {recurse: true}),
   port = process.env.PORT || 8000
+
+app.config = {
+  auth: config.auth,
+  database: config.database[NODE_ENV]
+}
 
 passportMiddleware.configure(config.auth[NODE_ENV])
 app.passport = passportMiddleware.passport

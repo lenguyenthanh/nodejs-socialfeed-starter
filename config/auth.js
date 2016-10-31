@@ -1,20 +1,16 @@
-// config/auth.js
 module.exports = {
-  'development': {
-    'facebook': {
-      'consumerKey': '...',
-      'consumerSecret': '...',
-      'callbackUrl': '...'
-    },
-    'twitter': {
-      'consumerKey': 'OaPwwyfXjd8WkPzPEWPlpT6Fs',
-      'consumerSecret': '...',
-      'callbackUrl': 'http://social-authenticator.com:8000/auth/twitter/callback'
-    },
-    'google': {
-      'consumerKey': '446585441765-unda5mjs6307q1pqobvhiqj87m9m2kh1.apps.googleusercontent.com',
-      'consumerSecret': '...',
-      'callbackUrl': 'http://social-authenticator.com:8000/auth/google/callback'
-    }
+
+  facebook: {
+    consumerKey: '101517050325781',
+    consumerSecret: '575dda6e48899614b856e70ef418e675',
+    callbackUrl: 'http://socialauthenticator.com:8000/auth/facebook/callback',
+    profileFields: ['id', 'displayName', 'photos', 'email'],
+    enableProof: true
+  },
+
+  twitter: {
+    consumerKey: 'qN7w91xf0OkbOb80j30Sxw5tb',
+    consumerSecret: 'RbcJzr2djKCUmbP6NAcfszlMLFjiFfVDIRNxGhQ4D7IUwS3ivn',
+    callbackUrl: 'http://socialauthenticator.com:8000/auth/twitter/callback'
   }
 }

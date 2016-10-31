@@ -2,9 +2,11 @@
   "name": "social-authenticator-demo",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node -- --stage 1 --optional strict -- index.js"
+    "start": "nodemon --exec babel-node -- -- index.js"
   },
   "dependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-preset-node5": "^11.0.1",
     "body-parser": "^1.12.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^0.8.1",
@@ -22,6 +24,8 @@
     "passport-google-oauth": "^0.2.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3",
-    "songbird": "^1.0.1"
+    "require-dir": "^0.3.1",
+    "songbird": "^1.0.1",
+    "twitter": "^1.4.0"
   }
 }
